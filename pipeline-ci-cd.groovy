@@ -105,11 +105,11 @@ pipeline {
                     configFileProvider([configFile(fileId: '0d7d58cc-3e47-4be9-af81-f99b951f7392', targetLocation: 'container.json')]) {
 
                         def url = "http://34.125.87.11:2375/containers/thymeleaf?force=true"
-                       // def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
+                        def response = sh(script: "curl -v -X DELETE $url", returnStdout: true).trim()
                         echo response
 
                         url = "http://34.125.87.11:2375/containers/create?name=thymeleaf"
-                       // response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container.json -s $url", returnStdout: true).trim()
+                        response = sh(script: "curl -v -X POST -H 'Content-Type: application/json' -d @container.json -s $url", returnStdout: true).trim()
                         echo response
                     }
                 }
@@ -120,7 +120,7 @@ pipeline {
             steps {
                 script{
                     final String url = "http://34.125.87.11:2375/containers/thymeleaf/start"
-                   // final String response = sh(script: "curl -v -X POST -s $url", returnStdout: true).trim()
+                    final String response = sh(script: "curl -v -X POST -s $url", returnStdout: true).trim()
                     echo response                    
                 }
             }
